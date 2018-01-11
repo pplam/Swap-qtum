@@ -3,7 +3,7 @@ ATN cross chain swap router at qtum
 ## Installation
 Make sure docker is avaliable and the qtum image has been pulled
 ~~~shell
-git clone https://github.com/ATNIO/Swap-ethereum.git
+git clone https://github.com/ATNIO/Swap-qtum.git
 cd Swap-qtum
 npm install
 ~~~
