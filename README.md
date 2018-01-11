@@ -23,7 +23,7 @@ npm run listenatn
 ~~~
 and swap events by
 ~~~shell
-npm run listenatn
+npm run listenswap
 ~~~
 Now launch another shell and
 ~~~shell
