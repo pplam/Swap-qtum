@@ -9,7 +9,8 @@ npm install
 ~~~
 ## Deployment
 ~~~shell
-./bin/qtumd && make
+./bin/qtumd
+make
 ~~~
 ## Usage
 Setup a demo with

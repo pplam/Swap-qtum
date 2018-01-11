@@ -49,7 +49,8 @@ async function setup() {
   console.log('\n\n')
   console.log()
   console.log(colors.blue('***********************************************************************************************'))
-  console.log(colors.green('Account1 is ready to swap atn!'))
+  console.log(colors.green('accounts/1 is ready to swap atn!'))
+  console.log(colors.green('you can use accounts/1 to swap atn to ethereum!'))
 }
 
 setup()
