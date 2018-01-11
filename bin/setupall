@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const colors = require('colors')
+
+const setAuthority = require('../utils/set_authority')
+const registerChain = require('../utils/register_chain')
+const permitMintAtn = require('../utils/permit_mint_atn')
+const permitBurnAtn = require('../utils/permit_burn_atn')
+const permitProve = require('../utils/permit_prove')
+const mintAtn = require('../utils/mint_atn')
+
+const atnAddress = require('../abis/ATN.json').contracts['atn-contracts/ATN.sol'].address
+const swapAddress = require('../abis/SWAP.json').contracts['Swap.sol'].address
+const authorityAddress = require('../abis/AUTHORITY.json').contracts['Authority.sol'].address
+
+async function setup() {
+  console.log(colors.blue('######################################[Set Authority Atn]######################################'))
+  await setAuthority('atn', authorityAddress)
+  console.log('\n\n')
+  console.log(colors.blue('######################################[Set Authority Swap]######################################'))
+  await setAuthority('swap', authorityAddress)
+  console.log('\n\n')
+  console.log(colors.blue('########################################[Register Chain]########################################'))
+  await registerChain('ethereum')
+  console.log('\n\n')
+  console.log(colors.blue('#########################################[Permit Mint]##########################################'))
+  await permitMintAtn(swapAddress)
+  console.log('\n\n')
+  console.log(colors.blue('#########################################[Permit Burn]##########################################'))
+  await permitBurnAtn(swapAddress)
+  console.log('\n\n')
+
+  const account1 = fs.readFileSync('../accounts/1').toString().split('\n')[1]
+  const account2 = fs.readFileSync('../accounts/2').toString().split('\n')[1]
+  const account3 = fs.readFileSync('../accounts/3').toString().split('\n')[1]
+
+  console.log(colors.blue('########################################[Permit Prove]##########################################'))
+  await permitProve(account1)
+  console.log('\n\n')
+  await permitProve(account2)
+  console.log('\n\n')
+  await permitProve(account3)
+  console.log('\n\n')
+
+  console.log(colors.blue('#########################################[Alloc Atn]###########################################'))
+  await mintAtn(account1, 100)
+  console.log('\n\n')
+  console.log()
+  console.log(colors.blue('***********************************************************************************************'))
+  console.log(colors.green('Account1 is ready to swap atn!'))
+}
+
+setup()

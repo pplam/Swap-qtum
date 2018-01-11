@@ -1,0 +1,22 @@
+{
+  "name": "swap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "listenatn": "node ./utils/atn_events",
+    "listenswap": "node ./utils/swap_events",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "js-sha3": "^0.7.0",
+    "qtumd-rpc": "0.0.2",
+    "qtumjs": "^1.4.3"
+  }
+}
