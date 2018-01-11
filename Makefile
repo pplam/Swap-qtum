@@ -1,6 +1,6 @@
 deploy:
-	@docker exec swap sh -c './bin/deploy.sh'
 	@./bin/alloc.sh
+	@docker exec swap sh -c './bin/deploy.sh'
 demo:
 	@./bin/setupall
 

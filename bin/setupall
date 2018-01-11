@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs')
+const path = require('path')
 const colors = require('colors')
 
 const setAuthority = require('../utils/set_authority')
@@ -31,9 +32,9 @@ async function setup() {
   await permitBurnAtn(swapAddress)
   console.log('\n\n')
 
-  const account1 = fs.readFileSync('../accounts/1').toString().split('\n')[1]
-  const account2 = fs.readFileSync('../accounts/2').toString().split('\n')[1]
-  const account3 = fs.readFileSync('../accounts/3').toString().split('\n')[1]
+  const account1 = fs.readFileSync(path.join(path.dirname(fs.realpathSync(__filename)), '../accounts/1')).toString().split('\n')[1]
+  const account2 = fs.readFileSync(path.join(path.dirname(fs.realpathSync(__filename)), '../accounts/2')).toString().split('\n')[1]
+  const account3 = fs.readFileSync(path.join(path.dirname(fs.realpathSync(__filename)), '../accounts/3')).toString().split('\n')[1]
 
   console.log(colors.blue('########################################[Permit Prove]##########################################'))
   await permitProve(account1)

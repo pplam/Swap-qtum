@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "listenatn": "node ./utils/atn_events",
-    "listenswap": "node ./utils/swap_events",
+    "listenatn": "node ./utils/atn_events.js",
+    "listenswap": "node ./utils/swap_events.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
