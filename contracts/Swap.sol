@@ -57,14 +57,20 @@ contract Swap is DSAuth, ERC223ReceivingContract  {
     address indexed to_address,
     uint amount
   );
+  // event Hello(string greet);
 
   function tokenFallback(
     address _from,
     uint _amount,
     bytes _data
   ) public {
+    // Hello("hello 1");
     var (toChain, toAddr) = parseFallbackData(_data);
-    require(dstChains[toChain]); swap(_from, toChain, toAddr, _amount);
+    // Hello("hello 2");
+    require(dstChains[toChain]);
+    // Hello("hello 3");
+    swap(_from, toChain, toAddr, _amount);
+    // Hello("hello 4");
   }
 
 
@@ -88,7 +94,9 @@ contract Swap is DSAuth, ERC223ReceivingContract  {
     public
     returns (bool)
   {
+    // Hello("hello 5");
     atn.burn(this, _amount);
+    // Hello("hello 6");
 
     uint idx = outTxs.push(OutTx({
       fromAddr: _from,
@@ -97,6 +105,7 @@ contract Swap is DSAuth, ERC223ReceivingContract  {
       amount: _amount
     })) - 1;
     SwapTx(_to_chain, idx, _to, _amount);
+    // Hello("hello 7");
 
     return true;
   }

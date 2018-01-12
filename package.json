@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "colors": "^1.1.2",
+    "ethjs-abi": "^0.2.1",
     "js-sha3": "^0.7.0",
     "qtumd-rpc": "0.0.2",
     "qtumjs": "^1.4.3"
