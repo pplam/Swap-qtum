@@ -7,9 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "listenatn": "node ./utils/atn_events.js",
-    "listenswap": "node ./utils/swap_events.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "listen": "node ./worker/index.js"
   },
   "author": "",
   "license": "ISC",

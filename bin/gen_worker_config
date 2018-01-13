@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const fs = require('fs')
+const out = path.join(path.dirname(fs.realpathSync(__filename)), '../worker/config.json')
+const atn = require('../abis/ATN.json').contracts['atn-contracts/ATN.sol'].address
+const args = process.argv.slice(2)
+const config = {
+  id: '0x000000000000000000000000000000000000000000000000000000007174756d',
+  name: 'qtum',
+  atn,
+  account: args[0],
+  accountHex: args[1],
+  endpoint: args[2]
+}
+fs.writeFileSync(out, JSON.stringify(config, null, 2))

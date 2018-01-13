@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+const path = require('path')
+const fs = require('fs')
+const out = path.join(path.dirname(fs.realpathSync(__filename)), '../worker/swap.json')
+const abi = require('../abis/SWAP.json').contracts['Swap.sol']
+
+fs.writeFileSync(out, JSON.stringify(abi, null, 2))
